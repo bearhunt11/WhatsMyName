@@ -26,6 +26,8 @@ import string
 import signal
 import sys
 import codecs
+import time
+import winsound
 
 ###################
 # Variables && Functions
@@ -51,6 +53,8 @@ args = parser.parse_args()
 # Create the final results dictionary
 overall_results = {}
 
+#Breng dit onder bij whatsmyname.py
+UserName = str(sys.argv[2])
 
 def check_os():
     if os.name == "nt":
@@ -153,7 +157,7 @@ if args.site:
     print(' -  Checking %d sites' % len(data['sites']))
 
 else:
-    print(' -  %s sites found in file.' % len(data['sites']))
+    time.sleep(0.01) #print(' -  %s sites found in file.' % len(data['sites']))
 
 
 for site in data['sites']:
@@ -180,7 +184,7 @@ for site in data['sites']:
             url_list.append(url)
             uname = each
     for each in url_list:
-        print(' -  Looking up %s' % each)
+        #print(' -  Looking up %s' % each)
         r = web_call(each)
         if isinstance(r, str):
             # We got an error on the web call
@@ -199,7 +203,11 @@ for site in data['sites']:
 
         if args.username:
             if code_match and string_match:
-                print(bcolors.GREEN + '[+] Found user at %s' % each + bcolors.ENDC)
+                f = open(UserName + ".txt", "a")
+                f.write("%s\n" % each)
+                f.close()
+                winsound.Beep(400, 250)
+                #print(bcolors.GREEN + '[+] Found user at %s' % each + bcolors.ENDC)
             continue
 
         if code_match and string_match:
