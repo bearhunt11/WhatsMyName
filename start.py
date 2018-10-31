@@ -11,7 +11,7 @@ username = me.getVar("text")
 #Pass thru and start whatsmyname program
 os.system("C:\\Python37\\python.exe web_accounts_list_checker.py -u " + username)
 
-#counter aanmaken voor eindmelding
+#create counter for final result report
 ctr = 0
 
 #Open output file and import found urls to maltego
