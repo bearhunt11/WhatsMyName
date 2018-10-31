@@ -19,7 +19,6 @@ f = open(username + ".txt", "r")
 for line in f:
 	me.addEntity("maltego.Domain", line)
 	ctr += 1
-	#print(line)
 f.close()
 
 #return new entitys to grahp
