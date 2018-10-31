@@ -1,1 +1,17 @@
-requests
+steps to install whatsmyname on maltego:
+1. download the dataset from githib
+2. edit start.py
+	os.system("PATH/TO/PYTHON.EXE web_accounts_list_checker.py -u " + username)
+3. have requests installed
+4. install transform in maltego
+	5. 	new local transform
+	6. 	display name = name
+		description = description of transform
+		transform ID = username.xxx (firstpart is automaticly fileld, second part is free)
+		author = youre name
+	7. 	input entity MUST be phrase
+		transform set = whatever you like
+	8. 	command = path to python 2 interpreter
+	9. 	parameters = path to start.py
+	10.	working directory = directory of start.py
+	11.	finish
